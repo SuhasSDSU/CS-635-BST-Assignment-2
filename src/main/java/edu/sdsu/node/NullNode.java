@@ -1,31 +1,28 @@
 package edu.sdsu.node;
 
-public final class NullNode<E> extends Node{
+public final class NullNode<E> extends Node {
 
    /**
     * We have implemented Null Object pattern using
-    * Singleton object.
+    * Singleton Pattern.
     */
    private E val;
    private NullNode left;
    private NullNode right;
 
    private static final NullNode node = new NullNode();
-   private NullNode(){}
-
-   public void setVal(E val){}
-   public static NullNode getInstance(){
+   private NullNode(){}public static NullNode getInstance(){
       return node;
    }
-
+   public void setVal(E val){}
    @Override
-   public Node getLeft() {
-      return null;
+   public NullNode getLeft() {
+      return this.left;
    }
 
    @Override
-   public Node getRight(){
-      return null;
+   public NullNode getRight(){
+      return this.right;
    }
 
    @Override

@@ -9,8 +9,8 @@ public class Node<E extends Comparable <E>> implements INode{
    }
    public Node(E value){
       this.value = value;
-      this.left = null;
-      this.right = null;
+      this.left = NullNode.getInstance();
+      this.right = NullNode.getInstance();
    }
 
    public boolean isNull(){

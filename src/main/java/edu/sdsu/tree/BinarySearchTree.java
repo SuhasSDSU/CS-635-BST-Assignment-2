@@ -1,24 +1,23 @@
 package edu.sdsu.tree;
 
-
 import edu.sdsu.node.Node;
 import edu.sdsu.node.NullNode;
 
 public class BinarySearchTree <E extends  Comparable<E>>{
    Node root;
    public BinarySearchTree(){
-      this.root = null;
+      this.root = NullNode.getInstance();
    }
    public void add(E val){
       this.root = recursiveInsert(val, this.root);
    }
 
    private Node recursiveInsert(E value, Node node){
-      if(node == null){
+      if(node.isNull()){
          node = new Node(value);
          return node;
       } else if (node.getValue().compareTo(value) > 0){
-         node.setLeft( recursiveInsert(value, node.getLeft()) );
+         node.setLeft(  recursiveInsert(value, node.getLeft()) );
       } else {
          node.setRight(recursiveInsert(value, node.getRight()));
       }
@@ -28,7 +27,8 @@ public class BinarySearchTree <E extends  Comparable<E>>{
       inorderRec(this.root);
    }
    private void inorderRec(Node root){
-      if (root != null) {
+      //perform recursion till the
+      if (!root.isNull()) {
          inorderRec(root.getLeft());
          System.out.println(root.getValue());
          inorderRec(root.getRight());
