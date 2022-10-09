@@ -5,7 +5,7 @@ import edu.sdsu.tree.BinarySearchTree;
 
 public class Main {
    public static void main(String[] args) {
-      BinarySearchTree object = new BinarySearchTree();
+      BinarySearchTree<Integer> object = new BinarySearchTree<>();
       object.add(10);
       object.add(8);
       object.add(13);

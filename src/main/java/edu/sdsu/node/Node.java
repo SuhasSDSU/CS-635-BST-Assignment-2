@@ -1,35 +1,41 @@
 package edu.sdsu.node;
 
-public class Node {
-   private int val;
+public class Node<E extends Comparable <E>> implements INode{
+   private E value;
    private Node left;
    private Node right;
-   public Node(int value){
-      this.val = value;
+   public Node(){
+      super();
+   }
+   public Node(E value){
+      this.value = value;
       this.left = null;
       this.right = null;
    }
 
-   public int getVal() {
-      return val;
+   public boolean isNull(){
+      return false;
+   }
+   public E getValue() {
+      return value;
    }
 
-   public void setVal(int val) {
-      this.val = val;
+   public void setValue(E value) {
+      this.value = value;
    }
 
+   @Override
    public Node getLeft() {
-      return left;
+      return this.left;
+   }
+   @Override
+   public Node getRight() {
+      return this.right;
    }
 
    public void setLeft(Node left) {
       this.left = left;
    }
-
-   public Node getRight() {
-      return right;
-   }
-
    public void setRight(Node right) {
       this.right = right;
    }
