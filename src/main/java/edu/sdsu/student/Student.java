@@ -1,6 +1,6 @@
 package edu.sdsu.student;
 
-public class Student {
+public class Student{
    private float gpa;
    private int redId;
    private String firstName;
