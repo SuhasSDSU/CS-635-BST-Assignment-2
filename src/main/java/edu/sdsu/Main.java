@@ -3,7 +3,7 @@
  * @REDID: 824816168
  * @Problem-Statment: Implement BST with:-
  * 1) Null Object Pattern -- Done
- * 2) Internal Iterator Pattern -- Check this using iterator
+ * 2) Internal Iterator Pattern -- Done
  * 3) Strategy Pattern -- shift the logic from BST to Strategy Pattern
  * 4) Visitor Pattern -- 
  */
@@ -11,15 +11,11 @@
 package edu.sdsu;
 
 
-import edu.sdsu.student.Student;
 import edu.sdsu.tree.BSTIterator;
 import edu.sdsu.tree.BinarySearchTree;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.stream.Collectors;
-
+import edu.sdsu.node.Node;
 public class Main {
    public static void main(String[] args) {
       BinarySearchTree<Integer> object = new BinarySearchTree<>();
@@ -43,21 +39,17 @@ public class Main {
       To get BST of Student we need to extend or implement Comparable in Student class
 
       object.add(new Student("Suhas","Pindiproli", (float) 3.83, 824815158));
-      object.add(new Student("Sashank","Pindiproli", (float) 4.0, 824815158));
-      object.add(new Student("Arun","Chaganti", (float) 3.73, 824815158));
-      object.add(new Student("Aakash","Joshi", (float) 4.0, 824815158));
-      object.add(new Student("Aman","Bafna", (float) 2.83, 824815158));
-      object.add(new Student("Dhruv","Makati", (float) 3.93, 824815158));
-      object.add(new Student("Rishab","Parekh", (float) 3.93, 824815158));
+      object.add(new Student("Sashank","Pindiproli", (float) 4.0, 824815159));
+      object.add(new Student("Arun","Chaganti", (float) 3.73, 824815160));
+      object.add(new Student("Aakash","Joshi", (float) 4.0, 824815161));
+      object.add(new Student("Aman","Bafna", (float) 2.83, 824815162));
+      object.add(new Student("Dhruv","Makati", (float) 3.93, 824815163));
+      object.add(new Student("Rishab","Parekh", (float) 3.93, 8248151 64));
 
       */
-      object.inorder();
-      /*
-       * Use the iterator to print the values
-       */
+     BSTIterator bstIterator = object.createIterator();
 
-//      BSTIterator<Integer> iterator = object.createIterator();
-//      iterator.forEach((e)-> System.out.println(e));
-
+     List<Node> list = bstIterator.traverse();
+     list.forEach(el -> System.out.println(el));
    }
 }

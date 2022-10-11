@@ -3,6 +3,7 @@ package edu.sdsu.tree;
 import edu.sdsu.node.Node;
 import edu.sdsu.node.NullNode;
 
+
 public class BinarySearchTree <E extends Comparable<E>> {
    Node root;
    public BinarySearchTree(){
@@ -23,23 +24,8 @@ public class BinarySearchTree <E extends Comparable<E>> {
       }
       return node;
    }
-   public void inorder(){
-      inorderRec(this.root);
-      /*
-       * Need to implement strategy
-       * for iteration
-       */
-   }
-   private void inorderRec(Node root){
-      //perform recursion till we reach the leaf node
-      if (!root.isNull()) {
-         inorderRec(root.getLeft());
-         System.out.println(root.getValue());
-         inorderRec(root.getRight());
-      }
-   }
 
    public BSTIterator createIterator(){
-      return new BSTIterator<>(root);
+      return new BSTIterator(this.root);
    }
 }

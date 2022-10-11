@@ -1,33 +1,35 @@
 package edu.sdsu.tree;
 
+
 import edu.sdsu.node.Node;
 
-import java.util.Iterator;
-import java.util.Objects;
-import java.util.Spliterator;
-import java.util.function.Consumer;
+import java.util.ArrayList;
+import java.util.Stack;
+import java.util.List;
 
-public class BSTIterator<E> implements Iterable<E> {
-   E head;
+public class BSTIterator<E> {
+   private Stack<Node> stack;
+   private Node currentNode;
+   private List bstList;
+   public BSTIterator(Node head){
+      stack = new Stack<>();
+      currentNode = head;
+      bstList = new ArrayList<>();
 
-   public BSTIterator(E element){
-      this.head = element;
    }
-   @Override
-   public void forEach(Consumer<? super E> action) {
-      Objects.requireNonNull(action);
-      for(E element: this){
-         action.accept(element);
+   public List traverse(){
+      inorderRec(currentNode);
+      return bstList;
+   }
+   private void inorderRec(Node node){
+      //perform recursion till we reach the leaf node
+      if (!node.isNull()) {
+         inorderRec(node.getLeft());
+         bstList.add(node.getValue());
+//         System.out.println(node.getValue());
+         inorderRec(node.getRight());
       }
    }
 
-   @Override
-   public Spliterator<E> spliterator() {
-      return Iterable.super.spliterator();
-   }
 
-   @Override
-   public Iterator<E> iterator() {
-      return null;
-   }
 }
