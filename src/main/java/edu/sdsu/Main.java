@@ -1,8 +1,24 @@
+/**
+ * @author: Suhas Pindiproli
+ * @REDID: 824816168
+ * @Problem-Statment: Implement BST with:-
+ * 1) Null Object Pattern -- Done
+ * 2) Internal Iterator Pattern -- Check this using iterator
+ * 3) Strategy Pattern -- shift the logic from BST to Strategy Pattern
+ * 4) Visitor Pattern -- 
+ */
+
 package edu.sdsu;
 
 
 import edu.sdsu.student.Student;
+import edu.sdsu.tree.BSTIterator;
 import edu.sdsu.tree.BinarySearchTree;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
    public static void main(String[] args) {
@@ -35,8 +51,13 @@ public class Main {
       object.add(new Student("Rishab","Parekh", (float) 3.93, 824815158));
 
       */
-
-
       object.inorder();
+      /*
+       * Use the iterator to print the values
+       */
+
+//      BSTIterator<Integer> iterator = object.createIterator();
+//      iterator.forEach((e)-> System.out.println(e));
+
    }
 }
