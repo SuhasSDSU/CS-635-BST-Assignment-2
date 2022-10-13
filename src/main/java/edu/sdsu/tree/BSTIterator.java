@@ -4,15 +4,12 @@ package edu.sdsu.tree;
 import edu.sdsu.node.Node;
 
 import java.util.ArrayList;
-import java.util.Stack;
 import java.util.List;
 
 public class BSTIterator<E> {
-   private Stack<Node> stack;
    private Node currentNode;
    private List bstList;
    public BSTIterator(Node head){
-      stack = new Stack<>();
       currentNode = head;
       bstList = new ArrayList<>();
 
@@ -26,7 +23,6 @@ public class BSTIterator<E> {
       if (!node.isNull()) {
          inorderRec(node.getLeft());
          bstList.add(node.getValue());
-//         System.out.println(node.getValue());
          inorderRec(node.getRight());
       }
    }
