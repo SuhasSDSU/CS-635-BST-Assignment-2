@@ -13,6 +13,7 @@ public class BinarySearchTree <E extends Comparable<E>> {
       this.root = recursiveInsert(val, this.root);
    }
 
+   /*Strategy content*/
    private Node recursiveInsert(E value, Node node){
       if(node.isNull()){
          node = new Node(value);

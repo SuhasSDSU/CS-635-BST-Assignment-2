@@ -11,7 +11,8 @@ public final class NullNode<E> extends Node {
    private NullNode right;
 
    private static final NullNode node = new NullNode();
-   private NullNode(){}public static NullNode getInstance(){
+   private NullNode(){}
+   public static NullNode getInstance(){
       return node;
    }
    public void setVal(E val){}

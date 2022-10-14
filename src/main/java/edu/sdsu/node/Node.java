@@ -1,5 +1,7 @@
 package edu.sdsu.node;
 
+import java.util.function.Consumer;
+
 public class Node<E extends Comparable <E>> implements INode{
    private E value;
    private Node left;
@@ -39,4 +41,9 @@ public class Node<E extends Comparable <E>> implements INode{
    public void setRight(Node right) {
       this.right = right;
    }
+
+//   @Override
+////   public void forEach(Consumer action) {
+////      this.forEach((Consumer) this.getValue());
+////   }
 }
