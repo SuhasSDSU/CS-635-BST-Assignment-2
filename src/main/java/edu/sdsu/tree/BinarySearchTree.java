@@ -4,7 +4,6 @@ import edu.sdsu.iterator.BSTIterator;
 import edu.sdsu.node.Node;
 import edu.sdsu.node.NullNode;
 import edu.sdsu.strategy.IStrategy;
-import edu.sdsu.strategy.RedIdStrategy;
 
 
 public class BinarySearchTree <E extends Comparable<E>> {
@@ -15,7 +14,7 @@ public class BinarySearchTree <E extends Comparable<E>> {
       this.strategy = strategy;
    }
    public void add(E val){
-      strategy.add(val, this.root);
+       this.root = strategy.add(val,root);
    }
 
    /*Strategy content*/

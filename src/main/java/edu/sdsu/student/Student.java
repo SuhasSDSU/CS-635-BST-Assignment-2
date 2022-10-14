@@ -1,6 +1,6 @@
 package edu.sdsu.student;
 
-public class Student{
+public class Student implements Comparable<Student> {
    private float gpa;
    private int redId;
    private String firstName;
@@ -42,5 +42,20 @@ public class Student{
 
    public void setLastName(String lastName) {
       this.lastName = lastName;
+   }
+
+   @Override
+   public int compareTo(Student object) {
+      return 0;
+   }
+
+   @Override
+   public String toString(){
+      return "{" +
+            "\"redId\":" + this.getRedId() +
+            ", \"first-name\":\"" + this.getFirstName() + '\"' +
+            ", \"last-name\":" + this.getLastName() +
+            ", \"gpa\":" + String.format("%.2f", this.getGpa()) +
+            '}';
    }
 }
