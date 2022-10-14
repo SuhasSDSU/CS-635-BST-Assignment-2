@@ -22,7 +22,7 @@ public class BSTIterator<E> {
       //perform recursion till we reach the leaf node
       if (!node.isNull()) {
          inorderRec(node.getLeft());
-         bstList.add(node.getValue());
+         bstList.add(node);
          inorderRec(node.getRight());
       }
    }
