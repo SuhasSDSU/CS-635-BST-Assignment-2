@@ -1,8 +1,7 @@
 package edu.sdsu.strategy;
 
-public interface IStrategy {
-   /*
-    * Need to set the strategy
-    * Might have to use Comparator for performing operations
-    */
+import edu.sdsu.node.Node;
+
+public interface IStrategy<E>{
+   public boolean add(E val, Node head);
 }

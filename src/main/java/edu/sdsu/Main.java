@@ -12,13 +12,14 @@ package edu.sdsu;
 
 
 import edu.sdsu.iterator.BSTIterator;
+import edu.sdsu.strategy.RedIdStrategy;
 import edu.sdsu.tree.BinarySearchTree;
 
 
 public class Main {
    public static void main(String[] args) {
 
-      BinarySearchTree<Integer> binarySearchTree = new BinarySearchTree<>();
+      BinarySearchTree<Integer> binarySearchTree = new BinarySearchTree<>(new RedIdStrategy());
       binarySearchTree.add(10);
       binarySearchTree.add(8);
       binarySearchTree.add(6);

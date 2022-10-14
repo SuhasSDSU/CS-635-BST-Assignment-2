@@ -42,8 +42,4 @@ public class Node<E extends Comparable <E>> implements INode{
       this.right = right;
    }
 
-//   @Override
-////   public void forEach(Consumer action) {
-////      this.forEach((Consumer) this.getValue());
-////   }
 }
