@@ -11,21 +11,21 @@
 package edu.sdsu;
 
 
-import edu.sdsu.tree.BSTIterator;
+import edu.sdsu.iterator.BSTIterator;
 import edu.sdsu.tree.BinarySearchTree;
 
 import java.util.List;
 import edu.sdsu.node.Node;
 public class Main {
    public static void main(String[] args) {
-      BinarySearchTree<Integer> object = new BinarySearchTree<>();
-      object.add(10);
-      object.add(8);
-      object.add(6);
-      object.add(9);
-      object.add(12);
-      object.add(11);
-      object.add(13);
+      BinarySearchTree<String> object = new BinarySearchTree<>();
+      object.add("10");
+      object.add("08");
+      object.add("06");
+      object.add("09");
+      object.add("12");
+      object.add("11");
+      object.add("13");
 
       /*
        *   10
@@ -49,7 +49,7 @@ public class Main {
       */
      BSTIterator bstIterator = object.createIterator();
 
-     List<Node> list = bstIterator.traverse();
-     list.forEach(el -> System.out.println(el));
+     List listOfNodes = bstIterator.getListOfNodes();
+     listOfNodes.forEach( element -> System.out.println(element));
    }
 }

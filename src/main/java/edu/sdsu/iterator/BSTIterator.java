@@ -1,4 +1,4 @@
-package edu.sdsu.tree;
+package edu.sdsu.iterator;
 
 
 import edu.sdsu.node.Node;
@@ -14,7 +14,7 @@ public class BSTIterator<E> {
       bstList = new ArrayList<>();
 
    }
-   public List traverse(){
+   public List getListOfNodes(){
       inorderRec(currentNode);
       return bstList;
    }

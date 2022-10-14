@@ -1,10 +1,13 @@
 package edu.sdsu.tree;
 
+import edu.sdsu.iterator.BSTIterator;
 import edu.sdsu.node.Node;
 import edu.sdsu.node.NullNode;
+import edu.sdsu.strategy.IStrategy;
 
 
 public class BinarySearchTree <E extends Comparable<E>> {
+   IStrategy strategy;
    Node root;
    public BinarySearchTree(){
       this.root = NullNode.getInstance();
