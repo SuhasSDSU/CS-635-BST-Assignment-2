@@ -2,30 +2,35 @@ package edu.sdsu.iterator;
 
 
 import edu.sdsu.node.Node;
+import java.util.Objects;
+import java.util.function.Consumer;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class BSTIterator<E> {
+public class BSTIterator<E>{
    private Node currentNode;
-   private List bstList;
    public BSTIterator(Node head){
-      currentNode = head;
-      bstList = new ArrayList<>();
-
+      this.currentNode = head;
    }
-   public List getListOfNodes(){
-      inorderRec(currentNode);
-      return bstList;
+
+   public void forEach(Consumer<? super E> action){
+      Objects.requireNonNull(action);
+      accept(this.currentNode);
+   }
+
+   public void accept(Node collection){
+      inOrderTraversal(collection);
+   }
+
+   public void inOrderTraversal(Object collection){
+      inorderRec((Node) collection);
+
    }
    private void inorderRec(Node node){
       //perform recursion till we reach the leaf node
       if (!node.isNull()) {
          inorderRec(node.getLeft());
-         bstList.add(node);
+         System.out.println(node.getValue());
          inorderRec(node.getRight());
       }
    }
-
 
 }
