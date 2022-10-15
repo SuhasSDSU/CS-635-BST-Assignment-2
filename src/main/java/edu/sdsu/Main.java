@@ -13,6 +13,7 @@ package edu.sdsu;
 
 import edu.sdsu.iterator.BSTIterator;
 import edu.sdsu.node.Node;
+
 import edu.sdsu.strategy.GPAStrategy;
 import edu.sdsu.strategy.RedIdStrategy;
 import edu.sdsu.student.Student;
@@ -52,7 +53,7 @@ public class Main {
       object.add(new Student("Dhruv","Makati", (float) 3.93, 824815173));
 
       */
-      BinarySearchTree<Student> binarySearchTree = new BinarySearchTree<>(new GPAStrategy());
+      BinarySearchTree<Student> binarySearchTree = new BinarySearchTree<>(new RedIdStrategy());
       binarySearchTree.add(new Student("Arun","Chaganti", (float) 3.73, 824815170));
       binarySearchTree.add(new Student("Sashank","Pindiproli", (float) 3.5, 824815162));
       binarySearchTree.add(new Student("Aakash","Joshi", (float) 3.80, 824815161));
@@ -61,9 +62,7 @@ public class Main {
       binarySearchTree.add(new Student("Dhruv","Makati", (float) 3.93, 824815173));
 
 
-      // check the iterator
+      binarySearchTree.forEach(element -> System.out.println(element.getValue()));
 
-     BSTIterator<Node> bstIterator = binarySearchTree.createIterator();
-     bstIterator.forEach(tree -> bstIterator.inOrderTraversal(tree));
    }
 }
