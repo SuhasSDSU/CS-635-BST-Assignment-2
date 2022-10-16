@@ -5,7 +5,7 @@ import edu.sdsu.node.NullNode;
 import edu.sdsu.strategy.IStrategy;
 import edu.sdsu.visitor.IVisitable;
 import edu.sdsu.visitor.IVisitor;
-import edu.sdsu.visitor.LongestPathVisitor;
+
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -13,12 +13,8 @@ import java.util.function.Consumer;
 import java.util.List;
 
 public class BinarySearchTree <E extends Comparable<E>> {
-   IStrategy strategy;
-   IVisitor visitor; // understand how to consume using the accept
-   // how to use visitor, how to maintain the context and understand the structures
-
-   IVisitable visitable;
-   Node root;
+   private IStrategy strategy;
+   private Node root;
 
    private List<Node> nodeList;
    public BinarySearchTree(IStrategy strategy){
@@ -48,9 +44,8 @@ public class BinarySearchTree <E extends Comparable<E>> {
       }
    }
 
-   public int getInternalNode(){
-      visitor = new LongestPathVisitor(this.root);
-      visitable.accpet(visitor);
-      return 0;
+   public Node getRoot(){
+      return this.root;
    }
+
 }

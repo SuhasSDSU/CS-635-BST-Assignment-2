@@ -1,13 +1,7 @@
 package edu.sdsu.strategy;
 
 import edu.sdsu.node.Node;
-import edu.sdsu.tree.BinarySearchTree;
-
-import java.util.Comparator;
-import java.util.function.Function;
-import java.util.function.ToDoubleFunction;
-import java.util.function.ToIntFunction;
-import java.util.function.ToLongFunction;
+import edu.sdsu.student.Student;
 
 public class NameStrategy implements IStrategy {
    Node context;
@@ -22,7 +16,7 @@ public class NameStrategy implements IStrategy {
       if(node.isNull()){
          node = new Node((Comparable) value);
          return node;
-      } else if (node.getValue().compareTo(value) > 0){
+      } else if (this.compare((Student) node.getValue(), (Student) value) > 0){
          node.setLeft(  recursiveInsert(value, node.getLeft()) );
       } else {
          node.setRight(recursiveInsert(value, node.getRight()));
@@ -30,7 +24,11 @@ public class NameStrategy implements IStrategy {
       return node;
    }
 
-   public int compare(Object o1, Object o2) {
-      return 0;
+   public int compare(Student student1, Student student2) {
+      int originalComparison = student1.getLastName().toLowerCase().compareTo(student2.getLastName().toLowerCase());
+
+      int newInsertionFactor = student1.getFirstName().toLowerCase().compareTo(student2.getFirstName().toLowerCase());
+      return originalComparison == 0 ? newInsertionFactor : originalComparison;
+
    }
 }

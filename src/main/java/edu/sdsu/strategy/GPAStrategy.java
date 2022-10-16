@@ -4,12 +4,6 @@ import edu.sdsu.node.Node;
 import edu.sdsu.node.NullNode;
 import edu.sdsu.student.Student;
 
-import java.util.Comparator;
-import java.util.function.Function;
-import java.util.function.ToDoubleFunction;
-import java.util.function.ToIntFunction;
-import java.util.function.ToLongFunction;
-
 public class GPAStrategy implements IStrategy{
 
    @Override
@@ -34,6 +28,6 @@ public class GPAStrategy implements IStrategy{
    }
 
    public int compare(Student student1, Student student2) {
-      return Float.compare(student1.getGpa() ,student2.getGpa());
+      return Math.round(Float.compare(student1.getGpa() ,student2.getGpa())) == 0 ? new RedIdStrategy().compare(student1,student2) : Math.round(Float.compare(student1.getGpa() ,student2.getGpa()));
    }
 }
