@@ -10,20 +10,16 @@
 
 package edu.sdsu;
 
-import edu.sdsu.node.Node;
 import edu.sdsu.strategy.GPAStrategy;
-import edu.sdsu.strategy.NameStrategy;
-import edu.sdsu.strategy.RedIdStrategy;
 import edu.sdsu.student.Student;
 import edu.sdsu.tree.BinarySearchTree;
-import edu.sdsu.visitor.LongestPathVisitable;
-import edu.sdsu.visitor.TreeVisitor;
+import edu.sdsu.visitor.*;
 
 
 public class Main {
    public static void main(String[] args) {
 
-      BinarySearchTree<Student> binarySearchTree = new BinarySearchTree<>(new NameStrategy());
+      BinarySearchTree<Student> binarySearchTree = new BinarySearchTree<>(new GPAStrategy());
       binarySearchTree.add(new Student("Sashank","Pindiproli", (float) 3.5, 824815162));
       binarySearchTree.add(new Student("Arun","Chaganti", (float) 3.73, 824815170));
       binarySearchTree.add(new Student("Aakash","Joshi", (float) 3.5, 824815161));
@@ -31,9 +27,14 @@ public class Main {
       binarySearchTree.add(new Student("Aman","Bafna", (float) 2.83, 824815168));
       binarySearchTree.add(new Student("Dhruv","Makati", (float) 3.93, 824815173));
 
-      binarySearchTree.forEach(element -> System.out.println(element.getValue()));
+//      binarySearchTree.forEach(element -> System.out.println(element.getValue()));
 
-//      LongestPathVisitable visitable = new LongestPathVisitable(binarySearchTree.getRoot());
-//      visitable.accpet(new TreeVisitor());
+      IVisitor treeVisitor = new TreeVisitor(binarySearchTree.getRoot());
+
+      IVisitable longestPathVisitable = new LongestPathVisitable();
+      longestPathVisitable.accpet(treeVisitor);
+
+      IVisitable nullNodeVisitable = new NullNodeVisitable();
+      nullNodeVisitable.accpet(treeVisitor);
    }
 }
