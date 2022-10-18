@@ -14,6 +14,7 @@ public class TreeVisitor implements IVisitor{
    @Override
    public void visit(LongestPathVisitable pathVisitable) {
       getLongestPath();
+      System.out.println(getNonLeafNode());
       getAvgPath();
    }
    @Override
@@ -23,8 +24,7 @@ public class TreeVisitor implements IVisitor{
    }
 
    private void getLongestPath(){
-      calculateNonLeafNode(this.root);
-      nonLeafNode = this.getNonLeafNode();
+      nonLeafNode = calculateNonLeafNode(this.root);
    }
    private int calculateNonLeafNode(Node node){
       if(node.isNull()) {

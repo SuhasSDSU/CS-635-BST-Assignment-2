@@ -3,8 +3,7 @@ package edu.sdsu.tree;
 import edu.sdsu.node.Node;
 import edu.sdsu.node.NullNode;
 import edu.sdsu.strategy.IStrategy;
-import edu.sdsu.visitor.IVisitable;
-import edu.sdsu.visitor.IVisitor;
+import edu.sdsu.student.Student;
 
 
 import java.util.ArrayList;
@@ -15,10 +14,11 @@ import java.util.List;
 public class BinarySearchTree <E extends Comparable<E>> {
    private IStrategy strategy;
    private Node root;
-
+   private Node searchedNode;
    private List<Node> nodeList;
    public BinarySearchTree(IStrategy strategy){
       this.root = NullNode.getInstance();
+      searchedNode = NullNode.getInstance();
       this.strategy = strategy;
       nodeList = new ArrayList<>();
    }
@@ -44,8 +44,37 @@ public class BinarySearchTree <E extends Comparable<E>> {
       }
    }
 
+   public void search(Integer redId){
+     recursiveSearch(redId, this.root);
+   }
+
+   private Node recursiveSearch(Integer redID, Node node){
+      Student rootStudent = (Student) node.getValue();
+      if(compare(redID, rootStudent) == 0 || node.isNull()) {
+         setSearchedNode(node);
+         return getSearchedNode();
+      }
+      if (compare(redID, rootStudent) > 0){
+         // if REDID is less than root, go to left subtree
+         recursiveSearch(redID, node.getLeft());
+      } else {
+         recursiveSearch(redID, node.getRight());
+      }
+      return node;
+   }
+
+   private int compare(Integer redid, Student student1) {
+      return Integer.compare(student1.getRedId() ,redid);
+   }
+
    public Node getRoot(){
       return this.root;
    }
 
+   public void setSearchedNode(Node node){
+      this.searchedNode = node;
+   }
+   public Node getSearchedNode() {
+      return searchedNode;
+   }
 }

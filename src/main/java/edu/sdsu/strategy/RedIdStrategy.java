@@ -1,6 +1,7 @@
 package edu.sdsu.strategy;
 
 import edu.sdsu.node.Node;
+import edu.sdsu.node.NullNode;
 import edu.sdsu.student.Student;
 
 public class RedIdStrategy implements IStrategy {
@@ -10,7 +11,7 @@ public class RedIdStrategy implements IStrategy {
    public Node add(Object val, Node head) {
       head = recursiveInsert(val, head);
       if(head.isNull()){
-         throw new NullPointerException();
+         return NullNode.getInstance();
       }
       return head;
    }
