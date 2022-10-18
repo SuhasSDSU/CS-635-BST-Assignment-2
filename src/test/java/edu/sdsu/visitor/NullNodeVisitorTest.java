@@ -8,7 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class LongestPathVisitorTest {
+public class NullNodeVisitorTest {
    BinarySearchTree<Student> binarySearchTree;
 
    @BeforeEach
@@ -25,19 +25,11 @@ public class LongestPathVisitorTest {
    }
 
    @Test
-   @DisplayName("Test Longest Path using visitor")
+   @DisplayName("Test Null Node Path using visitor")
    public void longestPathVisitor(){
       IVisitor treeVisitor = new TreeVisitor(binarySearchTree.getRoot());
-      IVisitable longestPathVisitable = new LongestPathVisitable();
-      assertEquals(longestPathVisitable.accept(treeVisitor), 5);
-   }
-
-   @Test
-   @DisplayName("Test Avg path using visitor")
-   public void AvgPath(){
-      IVisitor treeVisitor = new TreeVisitor(binarySearchTree.getRoot());
-      IVisitable avgPathVisitable = new LongestPathVisitable();
-      assertEquals(avgPathVisitable.accept(treeVisitor), 3.0);
+      IVisitable nullNodeVistable = new NullNodeVisitable();
+      assertEquals(nullNodeVistable.accept(treeVisitor), 8);
    }
 
 

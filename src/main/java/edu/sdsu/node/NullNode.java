@@ -12,20 +12,38 @@ public final class NullNode<E> extends Node {
 
    private static final NullNode node = new NullNode();
    private NullNode(){}
+
+   /**
+    *
+    * @return
+    */
    public static NullNode getInstance(){
       return node;
    }
    public void setVal(E val){}
+
+   /**
+    *
+    * @return
+    */
    @Override
    public NullNode getLeft() {
       return this.left;
    }
 
+   /**
+    *
+    * @return
+    */
    @Override
    public NullNode getRight(){
       return this.right;
    }
 
+   /**
+    *
+    * @return
+    */
    @Override
    public boolean isNull() {
       return true;

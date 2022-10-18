@@ -6,6 +6,12 @@
  * 2) Internal Iterator Pattern
  * 3) Strategy Pattern
  * 4) Visitor Pattern
+ *
+ * @TODO
+ * ISSUES TO CONSIDER:
+ * There are issues with the Null pointer exception in search
+ * Calculate Avg Path length -- Not implemented
+ * Calculate the number of null nodes -- Not implemented
  */
 
 package edu.sdsu;
@@ -32,6 +38,6 @@ public class Main {
       IVisitor treeVisitor = new TreeVisitor(binarySearchTree.getRoot());
       IVisitable longestPathVisitable = new LongestPathVisitable();
       int result = longestPathVisitable.accept(treeVisitor);
-
+      System.out.println(result);
    }
 }
