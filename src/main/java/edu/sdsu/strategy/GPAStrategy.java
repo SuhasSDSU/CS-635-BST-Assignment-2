@@ -19,7 +19,7 @@ public class GPAStrategy implements IStrategy{
       if(node.isNull()){
          node = new Node((Comparable) value);
       } else if (compare((Student) value, (Student) node.getValue()) < 0){
-         // if REDID is less than root go to left subtree
+         // if GPA is less than root go to left subtree
          node.setLeft(recursiveInsert(value, node.getLeft()) );
       } else {
          node.setRight(recursiveInsert(value, node.getRight()));

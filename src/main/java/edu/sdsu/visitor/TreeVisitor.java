@@ -4,37 +4,56 @@ import edu.sdsu.node.Node;
 
 public class TreeVisitor implements IVisitor{
    private Node root;
-   private int nullNodeCount;
-   private int pathCount;
-
+   private int nonLeafNode;
+   private int leafNodes;
    public TreeVisitor(Node head){
       this.root = head;
-      this.nullNodeCount = 0;
-      this.pathCount = 0;
+      this.nonLeafNode = 0;
+      this.leafNodes = 0;
    }
    @Override
    public void visit(LongestPathVisitable pathVisitable) {
-      /*This is the code for
-      Longest and avg path in the tree
-      * */
+      getLongestPath();
+      getAvgPath();
    }
-
-   private void getNullNode(Node node){
-      if(!node.isNull()){
-         if(node.isNull())this.nullNodeCount++;
-         getNullNode(node.getLeft());
-         getNullNode(node.getRight());
-      }
-   }
-
-
    @Override
    public void visit(NullNodeVisitable pathVisitable) {
-         getNullNode(this.root);
-         System.out.println(getNullNodeCount());
+      getNullNodes();
+      System.out.println(this.getLeafNodes());
    }
 
-   public int getNullNodeCount() {
-      return nullNodeCount;
+   private void getLongestPath(){
+      calculateNonLeafNode(this.root);
+      nonLeafNode = this.getNonLeafNode();
+   }
+   private int calculateNonLeafNode(Node node){
+      if(node.isNull()) {
+         return 0;
+      }
+      return 1 + calculateNonLeafNode(node.getLeft()) + calculateNonLeafNode(node.getRight());
+   }
+
+   private void getAvgPath(){}
+
+   // utility method that helps in finding Non-Leaf nodes
+   private void getNullNodes(){
+      calculateLeafNodes(this.root);
+   }
+
+   private void calculateLeafNodes(Node node){
+      if(node.isNull()) {
+         this.leafNodes++;
+         return;
+      }
+      calculateLeafNodes(node.getLeft());
+      calculateLeafNodes(node.getRight());
+   }
+
+   public int getNonLeafNode(){
+      return nonLeafNode;
+   }
+
+   public int getLeafNodes() {
+      return leafNodes;
    }
 }
