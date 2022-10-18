@@ -29,7 +29,7 @@ public class LongestPathVisitorTest {
    public void longestPathVisitor(){
       IVisitor treeVisitor = new TreeVisitor(binarySearchTree.getRoot());
       IVisitable longestPathVisitable = new LongestPathVisitable();
-      assertEquals(longestPathVisitable.accpet(treeVisitor), 5);
+      assertEquals(longestPathVisitable.accept(treeVisitor), 5);
    }
 
 

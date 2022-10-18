@@ -2,8 +2,8 @@ package edu.sdsu.visitor;
 
 public class NullNodeVisitable implements IVisitable{
    @Override
-   public int accpet(IVisitor iVisitor) {
+   public int accept(IVisitor iVisitor) {
       iVisitor.visit(this);
-      return 0;
+      return iVisitor.result();
    }
 }

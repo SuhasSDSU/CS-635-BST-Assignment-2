@@ -10,13 +10,13 @@ public class TreeVisitor implements IVisitor{
       this.maxHeight = 0;
    }
    @Override
-   public void visit(LongestPathVisitable pathVisitable) {
+   public int visit(LongestPathVisitable pathVisitable) {
       getLongestPath();
-      System.out.println(getMaxHeight());
+      return getMaxHeight();
    }
    @Override
-   public void visit(NullNodeVisitable pathVisitable) {
-      System.out.println(this.getMaxHeight());
+   public int visit(NullNodeVisitable pathVisitable) {
+      return this.getMaxHeight();
    }
 
    private void getLongestPath(){
@@ -31,6 +31,11 @@ public class TreeVisitor implements IVisitor{
 
    public int getMaxHeight(){
       return maxHeight;
+   }
+
+   @Override
+   public int result(){
+      return getMaxHeight();
    }
 
 }

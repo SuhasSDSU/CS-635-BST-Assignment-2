@@ -6,6 +6,8 @@ But here we are working only on Nodes
 */
 
 public interface IVisitor {
-   void visit(LongestPathVisitable pathVisitable);
-   void visit(NullNodeVisitable pathVisitable);
+   int visit(LongestPathVisitable pathVisitable);
+   int visit(NullNodeVisitable pathVisitable);
+
+   int result();
 }

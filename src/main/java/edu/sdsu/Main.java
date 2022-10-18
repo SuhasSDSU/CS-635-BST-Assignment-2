@@ -10,9 +10,6 @@
 
 package edu.sdsu;
 
-import edu.sdsu.node.Node;
-import edu.sdsu.strategy.GPAStrategy;
-import edu.sdsu.strategy.NameStrategy;
 import edu.sdsu.strategy.RedIdStrategy;
 import edu.sdsu.student.Student;
 import edu.sdsu.tree.BinarySearchTree;
@@ -21,7 +18,6 @@ import edu.sdsu.visitor.*;
 
 public class Main {
    public static void main(String[] args) {
-//
       BinarySearchTree<Student> binarySearchTree = new BinarySearchTree<>(new RedIdStrategy());
       binarySearchTree.add(new Student("Sashank","Pindiproli", (float) 3.5, 824815162));
       binarySearchTree.add(new Student("Arun","Chaganti", (float) 3.63, 824815170));
@@ -33,13 +29,9 @@ public class Main {
       binarySearchTree.add(new Student("Anuj","Kawane", (float) 4.0, 824815174));
 
       binarySearchTree.forEach(element -> System.out.println(element.getValue()));
-
-
-
-
       IVisitor treeVisitor = new TreeVisitor(binarySearchTree.getRoot());
       IVisitable longestPathVisitable = new LongestPathVisitable();
-      longestPathVisitable.accpet(treeVisitor);
+      int result = longestPathVisitable.accept(treeVisitor);
 
    }
 }
