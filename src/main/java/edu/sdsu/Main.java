@@ -32,18 +32,14 @@ public class Main {
       binarySearchTree.add(new Student("Kshitij","Poojari", (float) 3.4, 824815173));
       binarySearchTree.add(new Student("Anuj","Kawane", (float) 4.0, 824815174));
 
-//      binarySearchTree.forEach(element -> System.out.println(element.getValue()));
-
-      binarySearchTree.search(824815198);
-      Node test = binarySearchTree.getSearchedNode();
+      binarySearchTree.forEach(element -> System.out.println(element.getValue()));
 
 
-//      IVisitor treeVisitor = new TreeVisitor(binarySearchTree.getRoot());
-//
-//      IVisitable longestPathVisitable = new LongestPathVisitable();
-//      longestPathVisitable.accpet(treeVisitor);
 
-//      IVisitable nullNodeVisitable = new NullNodeVisitable();
-//      nullNodeVisitable.accpet(treeVisitor);
+
+      IVisitor treeVisitor = new TreeVisitor(binarySearchTree.getRoot());
+      IVisitable longestPathVisitable = new LongestPathVisitable();
+      longestPathVisitable.accpet(treeVisitor);
+
    }
 }

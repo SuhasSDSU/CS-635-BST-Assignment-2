@@ -4,56 +4,33 @@ import edu.sdsu.node.Node;
 
 public class TreeVisitor implements IVisitor{
    private Node root;
-   private int nonLeafNode;
-   private int leafNodes;
+   private int maxHeight;
    public TreeVisitor(Node head){
       this.root = head;
-      this.nonLeafNode = 0;
-      this.leafNodes = 0;
+      this.maxHeight = 0;
    }
    @Override
    public void visit(LongestPathVisitable pathVisitable) {
       getLongestPath();
-      System.out.println(getNonLeafNode());
-      getAvgPath();
+      System.out.println(getMaxHeight());
    }
    @Override
    public void visit(NullNodeVisitable pathVisitable) {
-      getNullNodes();
-      System.out.println(this.getLeafNodes());
+      System.out.println(this.getMaxHeight());
    }
 
    private void getLongestPath(){
-      nonLeafNode = calculateNonLeafNode(this.root);
+      maxHeight = calculateMaxHeight(this.root);
    }
-   private int calculateNonLeafNode(Node node){
+   private int calculateMaxHeight(Node node){
       if(node.isNull()) {
          return 0;
       }
-      return 1 + calculateNonLeafNode(node.getLeft()) + calculateNonLeafNode(node.getRight());
+      return 1 + Math.max(calculateMaxHeight(node.getLeft()) , calculateMaxHeight(node.getRight()) ) ;
    }
 
-   private void getAvgPath(){}
-
-   // utility method that helps in finding Non-Leaf nodes
-   private void getNullNodes(){
-      calculateLeafNodes(this.root);
+   public int getMaxHeight(){
+      return maxHeight;
    }
 
-   private void calculateLeafNodes(Node node){
-      if(node.isNull()) {
-         this.leafNodes++;
-         return;
-      }
-      calculateLeafNodes(node.getLeft());
-      calculateLeafNodes(node.getRight());
-   }
-
-   public int getNonLeafNode(){
-      return nonLeafNode;
-   }
-
-   public int getLeafNodes() {
-      return leafNodes;
-   }
 }
