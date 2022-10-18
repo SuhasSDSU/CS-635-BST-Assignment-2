@@ -7,5 +7,4 @@ import java.util.Comparator;
 
 public interface IStrategy<E>{
    Node add(E val, Node context);
-
 }

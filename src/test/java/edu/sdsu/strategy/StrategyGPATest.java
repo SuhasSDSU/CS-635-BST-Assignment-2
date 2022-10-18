@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class StrategyTest {
+public class StrategyGPATest {
    BinarySearchTree<Student> binarySearchTree;
    @BeforeEach
    public void init() {

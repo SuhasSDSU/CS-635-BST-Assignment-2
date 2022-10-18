@@ -39,6 +39,4 @@ public class LongestPathVisitorTest {
       IVisitable avgPathVisitable = new LongestPathVisitable();
       assertEquals(avgPathVisitable.accept(treeVisitor), 3.0);
    }
-
-
 }

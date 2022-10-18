@@ -16,6 +16,8 @@
 
 package edu.sdsu;
 
+import edu.sdsu.strategy.GPAStrategy;
+import edu.sdsu.strategy.NameStrategy;
 import edu.sdsu.strategy.RedIdStrategy;
 import edu.sdsu.student.Student;
 import edu.sdsu.tree.BinarySearchTree;
@@ -31,8 +33,8 @@ public class Main {
       binarySearchTree.add(new Student("Suhas","Pindiproli", (float) 3.5, 824815158));
       binarySearchTree.add(new Student("Aman","Bafna", (float) 2.83, 824815168));
       binarySearchTree.add(new Student("Dhruv","Makati", (float) 3.93, 824815172));
-      binarySearchTree.add(new Student("Kshitij","Poojari", (float) 3.4, 824815173));
-      binarySearchTree.add(new Student("Anuj","Kawane", (float) 4.0, 824815174));
+      binarySearchTree.add(new Student("Kshitij","Poojari", (float) 3.4, 824815153));
+      binarySearchTree.add(new Student("Anuj","Kawane", (float) 4.0, 824815154));
 
       binarySearchTree.forEach(element -> System.out.println(element.getValue()));
       IVisitor treeVisitor = new TreeVisitor(binarySearchTree.getRoot());

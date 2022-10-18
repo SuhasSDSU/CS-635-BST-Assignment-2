@@ -32,5 +32,4 @@ public class NullNodeVisitorTest {
       assertEquals(nullNodeVistable.accept(treeVisitor), 8);
    }
 
-
 }

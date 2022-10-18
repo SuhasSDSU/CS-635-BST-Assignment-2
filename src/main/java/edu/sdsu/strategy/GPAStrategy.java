@@ -28,6 +28,8 @@ public class GPAStrategy implements IStrategy{
    }
 
    public int compare(Student student1, Student student2) {
-      return Math.round(Float.compare(student1.getGpa() ,student2.getGpa())) == 0 ? new RedIdStrategy().compare(student1,student2) : Math.round(Float.compare(student1.getGpa() ,student2.getGpa()));
+      int compareGpa = Math.round(Float.compare(student1.getGpa() ,student2.getGpa()));
+      int redIdComparison = new RedIdStrategy().compare(student1,student2);
+      return compareGpa == 0 ? redIdComparison : compareGpa;
    }
 }
