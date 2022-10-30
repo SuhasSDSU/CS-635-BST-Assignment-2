@@ -44,23 +44,28 @@ public class BinarySearchTree <E extends Comparable<E>> {
       }
    }
 
-   public void search(Integer redId){
-     recursiveSearch(redId, this.root);
+   public Node search(Integer redId){
+     Node result = recursiveSearch(redId, this.root);
+     if(!result.isNull()){
+        return result;
+     }
+     return NullNode.getInstance();
    }
 
    private Node recursiveSearch(Integer redID, Node node){
-      Student rootStudent = (Student) node.getValue();
-      if(compare(redID, rootStudent) == 0 || node.isNull()) {
-         setSearchedNode(node);
-         return getSearchedNode();
+      if(!node.isNull()){
+         Student rootStudent = (Student) node.getValue();
+         if(compare(redID, rootStudent) == 0 || node.isNull()) {
+            setSearchedNode(node);
+         }
+         if (compare(redID, rootStudent) > 0){
+            // if REDID is less than root, go to left subtree
+            recursiveSearch(redID, node.getLeft());
+         } else {
+            recursiveSearch(redID, node.getRight());
+         }
       }
-      if (compare(redID, rootStudent) > 0){
-         // if REDID is less than root, go to left subtree
-         recursiveSearch(redID, node.getLeft());
-      } else {
-         recursiveSearch(redID, node.getRight());
-      }
-      return node;
+      return getSearchedNode();
    }
 
    private int compare(Integer redid, Student student1) {

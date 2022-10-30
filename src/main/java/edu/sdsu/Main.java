@@ -9,7 +9,6 @@
  *
  * @TODO
  * ISSUES TO CONSIDER:
- * There are issues with the Null pointer exception in search
  * Calculate Avg Path length -- Not implemented
  * Calculate the number of null nodes -- Not implemented
  */
@@ -20,6 +19,7 @@ import edu.sdsu.strategy.GPAStrategy;
 import edu.sdsu.strategy.NameStrategy;
 import edu.sdsu.strategy.RedIdStrategy;
 import edu.sdsu.student.Student;
+import edu.sdsu.node.Node;
 import edu.sdsu.tree.BinarySearchTree;
 import edu.sdsu.visitor.*;
 
@@ -36,10 +36,12 @@ public class Main {
       binarySearchTree.add(new Student("Kshitij","Poojari", (float) 3.4, 824815153));
       binarySearchTree.add(new Student("Anuj","Kawane", (float) 4.0, 824815154));
 
-      binarySearchTree.forEach(element -> System.out.println(element.getValue()));
-      IVisitor treeVisitor = new TreeVisitor(binarySearchTree.getRoot());
-      IVisitable longestPathVisitable = new LongestPathVisitable();
-      int result = longestPathVisitable.accept(treeVisitor);
-      System.out.println(result);
+      Node searchValue = binarySearchTree.search(824815154);
+      if(searchValue.isNull()){
+         System.out.println("Not present");
+      } else {
+         System.out.println(searchValue.getValue());
+      }
+
    }
 }

@@ -1,7 +1,5 @@
 package edu.sdsu.node;
 
-import java.util.function.Consumer;
-
 public class Node<E extends Comparable <E>> implements INode{
    private E value;
    private Node left;
@@ -9,11 +7,14 @@ public class Node<E extends Comparable <E>> implements INode{
 
    public Node(){
       super();
+      this.left = NullNode.getInstance();
+      this.right = NullNode.getInstance();
    }
 
    /**
     *
     * @param value
+    * Intialize with null node
     */
    public Node(E value){
       this.value = value;
@@ -24,6 +25,7 @@ public class Node<E extends Comparable <E>> implements INode{
    /**
     *
     * @return
+    * check if the node is null
     */
    public boolean isNull(){
       return false;
@@ -42,7 +44,7 @@ public class Node<E extends Comparable <E>> implements INode{
 
    /**
     *
-    * @return
+    * @return left node
     */
    @Override
    public Node getLeft() {
@@ -51,7 +53,7 @@ public class Node<E extends Comparable <E>> implements INode{
 
    /**
     *
-    * @return
+    * @return right node
     */
    @Override
    public Node getRight() {
@@ -59,15 +61,15 @@ public class Node<E extends Comparable <E>> implements INode{
    }
 
    /**
-    *
-    * @param left
+    * set left node
+    * @params
     */
    public void setLeft(Node left) {
       this.left = left;
    }
 
    /**
-    *
+    * set right node
     * @param right
     */
    public void setRight(Node right) {
